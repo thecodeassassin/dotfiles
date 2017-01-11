@@ -1,0 +1,32 @@
+[user]
+	email = stephen@tca0.nl
+	name = 
+	namel = Stephen Hoogendijk
+[core]
+	excludesfile = /Users/stephen/.gitignore
+	editor = vim
+[alias]
+    lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative  
+    up = "!git fetch --all && git fetch -p --tags  && git pull origin \"$(git rev-parse --abbrev-ref HEAD)\""  
+    pu = "!git push origin \"$(git rev-parse --abbrev-ref HEAD)\" --tags"     
+    st = status
+    ci = commit
+    addp = add -A --patch 
+    gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    shdf = diff-tree --no-commit-id --name-only -r  
+
+[color]
+	ui = auto
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = diffmerge --merge\n--result=$MERGED $LOCAL $BASE $REMOTE
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
